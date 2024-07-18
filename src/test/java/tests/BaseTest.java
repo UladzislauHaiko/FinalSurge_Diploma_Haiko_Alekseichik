@@ -3,6 +3,7 @@ package tests;
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestContext;
 import org.testng.annotations.*;
+import pages.DashboardPage;
 import pages.LoginPage;
 import utils.DriverFactory;
 import utils.InvokedListener;
@@ -14,6 +15,8 @@ import utils.TestListener;
 public abstract class BaseTest {
     protected WebDriver driver;
     protected LoginPage loginPage;
+    protected DashboardPage dashboardPage;
+
 
 
     @BeforeClass(alwaysRun = true)
@@ -22,6 +25,7 @@ public abstract class BaseTest {
         driver = DriverFactory.getDriver(browserName);
         testContext.setAttribute("driver", driver);
         this.loginPage = new LoginPage(driver);
+        this.dashboardPage = new DashboardPage(driver);
 
 
         driver.get(PropertyReader.getProperty("base_url"));
