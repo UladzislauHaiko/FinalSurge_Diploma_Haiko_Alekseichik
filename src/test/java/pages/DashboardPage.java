@@ -1,20 +1,20 @@
 package pages;
 
 import io.qameta.allure.Step;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import pages.base.BasePage;
+import pages.gearAndRoutes.shoes.ShoesPage;
+import pages.otherCalculators.OtherCalculatorsPage;
+import pages.workouts.importData.ImportDataPage;
+import pages.workouts.printWorkouts.PrintWorkoutsPage;
 
 public class DashboardPage extends BasePage {
 
-    @Override
-    public void isPageOpened() {
-        wait.until(ExpectedConditions.elementToBeClickable(dashboardButton));
-    }
-
     public final By workoutHeader= By.xpath("//a[text()='Workouts']");
     public final By addWorkout = By.xpath("//a[text()='Add Workout']");
+    public final By importData = By.xpath("//a[text()='Import Data']");
     public final By customizeActivityTypes = By.xpath("//a[text()='Customize Activity Types']");
     public final By paceZones = By.xpath("//a[text()='HR/Power/Pace Zones']");
     public final By gearRoutesHeader= By.xpath("//a[text()='Gear & Routes']");
@@ -30,15 +30,16 @@ public class DashboardPage extends BasePage {
     public final By printWorkoutsLink = By.xpath("//nav//li//i[@class='icsw16-printer']/..");
     public final By reportsStatisticsLink = By.xpath("//a/i[@class='icsw16-graph']");
 
-    public DashboardPage(WebDriver driver) {
-        super(driver);
+    public DashboardPage() {
+        super();
     }
 
     @Step
-    public void navigateToShoesPage() {
+    public ShoesPage navigateToShoesPage() {
         Actions action = new Actions(driver);
         action.moveToElement(driver.findElement(gearRoutesHeader)).build().perform();
         driver.findElement(shoes).click();
+        return new ShoesPage();
     }
 
     @Step
@@ -46,6 +47,14 @@ public class DashboardPage extends BasePage {
         Actions action = new Actions(driver);
         action.moveToElement(driver.findElement(workoutHeader)).build().perform();
         driver.findElement(addWorkout).click();
+    }
+
+    @Step
+    public ImportDataPage navigateToImportData() {
+        Actions action = new Actions(driver);
+        action.moveToElement(driver.findElement(workoutHeader)).build().perform();
+        driver.findElement(importData).click();
+        return new ImportDataPage();
     }
 
     @Step
@@ -85,13 +94,15 @@ public class DashboardPage extends BasePage {
     }
 
     @Step("Clicking 'Other Calculators'")
-    public void clickOtherCalculators() {
+    public OtherCalculatorsPage clickOtherCalculators() {
         driver.findElement(otherCalculators ).click();
+        return new OtherCalculatorsPage();
     }
 
     @Step("Clicking 'Print Workouts' link")
-    public void clickPrintWorkouts() {
+    public PrintWorkoutsPage clickPrintWorkouts() {
         driver.findElement(printWorkoutsLink).click();
+        return new PrintWorkoutsPage();
     }
 
     @Step("Clicking 'Reports & Statistics' link")
@@ -109,6 +120,11 @@ public class DashboardPage extends BasePage {
         return driver.findElement(logoutMessage).getText();
     }
 
+    @Override
+    public boolean isPageOpened() {
+        wait.until(ExpectedConditions.elementToBeClickable(dashboardButton));
+        return true;
+    }
 }
 
 

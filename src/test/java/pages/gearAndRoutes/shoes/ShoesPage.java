@@ -1,20 +1,18 @@
-package pages;
+package pages.gearAndRoutes.shoes;
 
 import decorators.TypeAheadDropdown;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
+import pages.base.BasePage;
 
 public class ShoesPage extends BasePage {
     public final By shoeName = By.id("ShoeName");
     public final By shoeBrand = By.id("s2id_ShoeBrand");
     public final By addShoeButton = By.id("saveButton");
 
-    public ShoesPage(WebDriver driver) {
-        super(driver);
+    public ShoesPage() {
+        super();
     }
 
     @Step
@@ -31,7 +29,8 @@ public class ShoesPage extends BasePage {
     }
 
     @Override
-    public void isPageOpened() {
+    public boolean isPageOpened() {
         wait.until(ExpectedConditions.elementToBeClickable(addShoeButton));
+        return true;
     }
 }
