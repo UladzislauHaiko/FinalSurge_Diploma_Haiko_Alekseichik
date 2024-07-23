@@ -3,6 +3,7 @@ package tests;
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestContext;
 import org.testng.annotations.*;
+import pages.DashboardPage;
 import pages.LoginPage;
 import utils.DriverFactory;
 import utils.InvokedListener;
@@ -14,6 +15,7 @@ import utils.TestListener;
 public abstract class BaseTestWithLogin {
     protected WebDriver driver;
     protected LoginPage loginPage;
+    protected DashboardPage dashboardPage;
 
 
     @BeforeClass(alwaysRun = true)
@@ -22,6 +24,7 @@ public abstract class BaseTestWithLogin {
         driver = DriverFactory.getDriver(browserName);
         testContext.setAttribute("driver", driver);
         this.loginPage = new LoginPage(driver);
+        this.dashboardPage = new DashboardPage(driver);
     }
 
     @AfterClass(alwaysRun = true)

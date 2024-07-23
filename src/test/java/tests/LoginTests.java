@@ -12,6 +12,6 @@ public class LoginTests extends BaseTestWithLogin {
         loginPage.openMainURL();
         loginPage.isPageOpened();
         loginPage.login(PropertyReader.getProperty("email"), PropertyReader.getProperty("password"));
-//        Assert.assertTrue(dashboardPage.isDashboardLinkDisplayed());
+        Assert.assertTrue(dashboardPage.dashboardButtonIsDisplayed());
     }
 }
