@@ -5,10 +5,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import pages.base.BasePage;
-import pages.gearAndRoutes.shoes.ShoesPage;
-import pages.otherCalculators.OtherCalculatorsPage;
-import pages.workouts.importData.ImportDataPage;
-import pages.workouts.printWorkouts.PrintWorkoutsPage;
 
 public class DashboardPage extends BasePage {
 

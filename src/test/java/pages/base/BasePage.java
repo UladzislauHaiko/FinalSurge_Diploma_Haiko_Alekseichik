@@ -14,8 +14,8 @@ public abstract class BasePage {
     protected final Logger logger = LogManager.getLogger(this.getClass().getName());
 
     public BasePage() {
-        this.driver = DriverFactory.getInstance().getDriver();
-        this.wait = new WebDriverWait(this.driver, Duration.ofSeconds(20));
+        driver = DriverFactory.getInstance().getDriver();
+        wait = new WebDriverWait(driver, Duration.ofSeconds(20));
     }
 
     public abstract boolean isPageOpened();

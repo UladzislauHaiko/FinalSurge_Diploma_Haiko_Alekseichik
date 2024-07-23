@@ -1,12 +1,11 @@
-package tests.workouts.printWorkouts;
+package tests;
 
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.DashboardPage;
 import pages.base.BaseTest;
-import pages.workouts.printWorkouts.PrintWorkoutsPage;
+import pages.PrintWorkoutsPage;
 import utils.PropertyReader;
 
 public class PrintWorkoutsTest extends BaseTest {

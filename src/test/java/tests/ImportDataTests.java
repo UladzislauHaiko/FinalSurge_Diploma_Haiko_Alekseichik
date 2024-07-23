@@ -1,11 +1,11 @@
-package tests.workouts.importData;
+package tests;
 
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.DashboardPage;
 import pages.base.BaseTest;
-import pages.workouts.importData.ImportDataPage;
+import pages.ImportDataPage;
 import utils.PropertyReader;
 
 public class ImportDataTests extends BaseTest {

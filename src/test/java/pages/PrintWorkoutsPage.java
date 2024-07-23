@@ -1,4 +1,4 @@
-package pages.workouts.printWorkouts;
+package pages;
 
 import org.openqa.selenium.By;
 import pages.base.BasePage;
