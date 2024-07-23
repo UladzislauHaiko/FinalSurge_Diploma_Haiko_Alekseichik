@@ -2,11 +2,10 @@ package tests;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.ITestContext;
 import org.testng.annotations.*;
-import pages.DashboardPage;
-import pages.LoginPage;
-import pages.ShoesPage;
+import pages.*;
 import utils.DriverFactory;
 import utils.InvokedListener;
 import utils.PropertyReader;
@@ -19,6 +18,10 @@ public abstract class BaseTest {
     protected LoginPage loginPage;
     protected ShoesPage shoesPage;
     protected DashboardPage dashboardPage;
+    protected AddWorkoutPage addWorkoutPage;
+    protected ImportDataPage importDataPage;
+    protected PrintWorkoutsPage printWorkoutsPage;
+    protected CalendarPage calendarPage;
 
 
 
@@ -30,11 +33,14 @@ public abstract class BaseTest {
         this.loginPage = new LoginPage(driver);
         this.shoesPage = new ShoesPage(driver);
         this.dashboardPage = new DashboardPage(driver);
+        this.addWorkoutPage = new AddWorkoutPage(driver);
+        this.importDataPage = new ImportDataPage(driver);
+        this.printWorkoutsPage = new PrintWorkoutsPage(driver);
+        this.calendarPage = new CalendarPage(driver);
 
 
         driver.get(PropertyReader.getProperty("base_url"));
         loginPage.login(PropertyReader.getProperty("email"), PropertyReader.getProperty("password"));
-        driver.findElement(By.xpath("//span[contains(text(), 'Continue with Classic')]")).click();
     }
 
     @AfterClass(alwaysRun = true)

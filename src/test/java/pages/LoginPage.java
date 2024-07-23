@@ -7,10 +7,11 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import utils.PropertyReader;
 
 public class LoginPage extends BasePage {
-    public final By logInLink = By.xpath("//span[contains(text(), 'Log In')]");
-    public final By loginEmail = By.cssSelector("input[name=email]");
-    public final By loginPassword = By.cssSelector("input[name=password]");
-    public final By signInButton = By.xpath("//span[contains(text(), 'Sign In')]");
+    protected final By logInLink = By.xpath("//span[contains(text(), 'Log In')]");
+    protected final By loginEmail = By.cssSelector("input[name=email]");
+    protected final By loginPassword = By.cssSelector("input[name=password]");
+    protected final By signInButton = By.xpath("//span[contains(text(), 'Sign In')]");
+    protected final By classicOption = By.xpath("//span[contains(text(), 'Continue with Classic')]");
 
     public LoginPage(WebDriver driver) {
         super(driver);
@@ -52,5 +53,6 @@ public class LoginPage extends BasePage {
         setEmailValue(email);
         setPasswordValue(password);
         clickSignInButton();
+        driver.findElement(classicOption).click();
     }
 }
