@@ -11,7 +11,6 @@ import utils.PropertyReader;
 public class ImportDataTests extends BaseTest {
 
     public ImportDataPage importDataPage;
-
     @BeforeMethod(alwaysRun = true)
     public void loginAndMoveToPrintWorkouts(){
         DashboardPage dashboardPage = loginPage.login(PropertyReader.getProperty("email"), PropertyReader.getProperty("password"));

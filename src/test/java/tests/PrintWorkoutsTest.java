@@ -17,7 +17,6 @@ public class PrintWorkoutsTest extends BaseTest {
         DashboardPage dashboardPage = loginPage.login(PropertyReader.getProperty("email"), PropertyReader.getProperty("password"));
         printWorkoutsPage = dashboardPage.clickPrintWorkouts();
     }
-
     @Test(groups = "negative")
     public void verifyPrintWithoutData() {
         String expectedErrorMsg = """

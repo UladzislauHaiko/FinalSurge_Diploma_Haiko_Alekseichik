@@ -28,7 +28,6 @@ public class PrintWorkoutsPage extends BasePage {
         Object[] windowHandles=driver.getWindowHandles().toArray();
         driver.switchTo().window((String) windowHandles[1]);
     }
-
     private void switchToFrame(){
         driver.switchTo().frame(driver.findElement(iframe));
     }

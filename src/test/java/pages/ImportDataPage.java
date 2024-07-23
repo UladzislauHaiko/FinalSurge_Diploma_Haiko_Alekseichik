@@ -14,7 +14,6 @@ public class ImportDataPage extends BasePage {
     public ImportDataPage() {
         super();
     }
-
     public void uploadFile(String fileName){
         selectFile(fileName);
         clickToUploadFile();
