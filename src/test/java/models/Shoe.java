@@ -15,6 +15,7 @@ public class Shoe {
     private String shoeModel;
     @EqualsAndHashCode.Include
     private String shoeCost;
+    @EqualsAndHashCode.Include
     private String datePurchased;
     @EqualsAndHashCode.Include
     private String shoeSize;
