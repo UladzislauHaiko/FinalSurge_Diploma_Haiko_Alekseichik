@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 import utils.PropertyReader;
 
 
-public class LoginTests extends BaseTestWithLogin {
+public class LoginTests extends BaseTestWithOutLogin {
 
     @Test
     public void positiveLoginTest() {

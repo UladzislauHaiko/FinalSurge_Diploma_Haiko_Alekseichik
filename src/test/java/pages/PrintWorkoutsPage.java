@@ -2,6 +2,7 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class PrintWorkoutsPage extends BasePage {
 
@@ -11,6 +12,7 @@ public class PrintWorkoutsPage extends BasePage {
     private final By printEndDate = By.cssSelector("input[id='PrintEndDate']");
     private final By printWorkoutsBtn = By.xpath("//input[@id='saveButtonPrint']");
     private final By error = By.xpath("//div[@class='alert alert-error']");
+    private final By closePopUpIcon = By.xpath("//div[@id='PrintWorkouts']/a");
 
     public PrintWorkoutsPage(WebDriver driver) {
         super(driver);
@@ -61,6 +63,6 @@ public class PrintWorkoutsPage extends BasePage {
 
     @Override
     public void isPageOpened() {
-
+        wait.until(ExpectedConditions.elementToBeClickable(closePopUpIcon));
     }
 }

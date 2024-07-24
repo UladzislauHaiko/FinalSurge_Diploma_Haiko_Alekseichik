@@ -3,6 +3,7 @@ package tests;
 import com.github.javafaker.Faker;
 import enums.ShoeBrand;
 import models.Shoe;
+import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -12,8 +13,8 @@ public class ShoesTests extends BaseTest {
             .shoeName(faker.harryPotter().character())
             .shoeBrand(ShoeBrand.NIKE)
             .shoeModel("Yeezy 350")
-            .shoeCost("115")
-            .datePurchased("07/22/2024")
+            .shoeCost("115.00")
+            .datePurchased("7/25/2024")
             .shoeSize("8.5")
             .startingDistance("15")
             .alertDistance("77")

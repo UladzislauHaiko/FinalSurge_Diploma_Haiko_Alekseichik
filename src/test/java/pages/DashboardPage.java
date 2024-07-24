@@ -14,69 +14,71 @@ public class DashboardPage extends BasePage {
         wait.until(ExpectedConditions.elementToBeClickable(dashboardButton));
     }
 
-    public final By workoutHeader= By.xpath("//a[text()='Workouts']");
+    public final By workoutHeader = By.xpath("//a[text()='Workouts']");
     public final By addWorkout = By.xpath("//a[text()='Add Workout']");
     public final By customizeActivityTypes = By.xpath("//a[text()='Customize Activity Types']");
     public final By paceZones = By.xpath("//a[text()='HR/Power/Pace Zones']");
-    public final By gearRoutesHeader= By.xpath("//a[text()='Gear & Routes']");
+    public final By gearRoutesHeader = By.xpath("//a[text()='Gear & Routes']");
     public final By shoes = By.xpath("//a[text()='Shoes']");
-    public final By dailyVitalsHeader= By.xpath("//a[text()='Daily Vitals']");
+    public final By dailyVitalsHeader = By.xpath("//a[text()='Daily Vitals']");
     public final By viewAddVitals = By.xpath("//a[text()='View & Add Vitals']");
     public final By importData = By.xpath("//a[text()='Import Data']");
-    public final By dashboardButton = By.xpath("//*[@class='icsw16-home']");
-    public final By calendar = By.className("icsw16-day-calendar");
-    public final By workoutCalculators= By.xpath("//i[@class='icsw16-stop-watch']");
-    public final By otherCalculators = By.xpath("//i[@class='icsw16-calculator']");
+    public final By dashboardButton = By.xpath("//i[contains(@class, '-home')]");
+    public final By calendar = By.xpath("//i[contains(@class, '-calendar')]");
+    public final By workoutCalculators = By.xpath("//i[contains(@class, '-watch')]");
+    public final By otherCalculators = By.xpath("//i[contains(@class, '-calculator')]");
     public final By logoutLink = By.xpath("//a[text()='Logout']");
-    public static final By  logoutMessage = By.cssSelector("[class^='alert']");
-    public final By printWorkoutsLink = By.xpath("//nav//li//i[@class='icsw16-printer']/..");
-    public final By reportsStatisticsLink = By.xpath("//a/i[@class='icsw16-graph']");
+    public static final By logoutMessage = By.cssSelector("[class^='alert']");
+    public final By printWorkoutsLink = By.xpath("//nav//a[@data-reveal-id='PrintWorkouts']");
+    public final By reportsStatisticsLink = By.xpath("//i[contains(@class, '-graph')]");
 
     public DashboardPage(WebDriver driver) {
         super(driver);
     }
 
+    public void moveToElement(By locator) {
+        Actions action = new Actions(driver);
+        action.moveToElement(driver.findElement(locator)).build().perform();
+    }
+
     @Step
     public void navigateToShoesPage() {
-        Actions action = new Actions(driver);
-        action.moveToElement(driver.findElement(gearRoutesHeader)).build().perform();
+        moveToElement(gearRoutesHeader);
         driver.findElement(shoes).click();
     }
+
     @Step
     public void navigateToImportData() {
-        Actions action = new Actions(driver);
-        action.moveToElement(driver.findElement(workoutHeader)).build().perform();
+        moveToElement(workoutHeader);
         driver.findElement(importData).click();
     }
+
     @Step
     public void openPage() {
         driver.get("https://log.finalsurge.com/default.cshtml");
     }
+
     @Step
     public void navigateToAddWorkout() {
-        Actions action = new Actions(driver);
-        action.moveToElement(driver.findElement(workoutHeader)).build().perform();
+        moveToElement(workoutHeader);
         driver.findElement(addWorkout).click();
     }
 
     @Step
     public void openCustomizeActivityTypes() {
-        Actions action = new Actions(driver);
-        action.moveToElement(driver.findElement(workoutHeader)).build().perform();
+        moveToElement(workoutHeader);
         driver.findElement(customizeActivityTypes).click();
     }
 
     @Step
     public void openAddPaceZones() {
-        Actions action = new Actions(driver);
-        action.moveToElement(driver.findElement(workoutHeader)).build().perform();
+        moveToElement(workoutHeader);
         driver.findElement(paceZones).click();
     }
 
     @Step
     public void navigateToViewAddVitals() {
-        Actions action = new Actions(driver);
-        action.moveToElement(driver.findElement(dailyVitalsHeader)).build().perform();
+        moveToElement(dailyVitalsHeader);
         driver.findElement(viewAddVitals).click();
     }
 

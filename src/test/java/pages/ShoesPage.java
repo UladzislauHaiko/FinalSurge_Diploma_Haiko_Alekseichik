@@ -28,6 +28,9 @@ public class ShoesPage extends BasePage {
     public final By deleteShoeButton = By.id("del-shoe2");
     public final By deleteConfirmButton = By.cssSelector("a[class='btn btn-primary']");
     public final By shoeLink = By.xpath("//table//strong/a");
+    public final String createdShoePurchased = "//a[text()='%s']/../following-sibling::span/strong[text()='Purchased: ']/..";
+    public final String createdShoeCost = "//a[text()='%s']/../following-sibling::span/strong[text()='Cost: ']/..";
+    public final String createdShoeSize = "//a[text()='%s']/../following-sibling::span/strong[text()='Size: ']/..";
 
     public ShoesPage(WebDriver driver) {
         super(driver);
@@ -71,16 +74,8 @@ public class ShoesPage extends BasePage {
             select.selectByVisibleText(shoe.getShoeSize());
         }
         if (shoe.getStartingDistance() != null) {
-            Actions action = new Actions(driver);
             WebElement distanceInput = driver.findElement(startingDistance);
-            action.click(distanceInput)
-                    .keyDown(Keys.CONTROL)
-                    .sendKeys("a")
-                    .keyUp(Keys.CONTROL)
-                    .keyDown(Keys.CONTROL)
-                    .sendKeys("x")
-                    .keyUp(Keys.CONTROL)
-                    .build().perform();
+            clearInput(distanceInput);
             distanceInput.sendKeys(shoe.getStartingDistance());
         }
         if (shoe.getAlertDistance() != null) {
@@ -95,12 +90,27 @@ public class ShoesPage extends BasePage {
     public Shoe getShoeInfo(String name) {
         Shoe resultShoe = Shoe.builder()
                 .shoeName(this.getShoeName(name).getText())
+                .datePurchased(this.getShoeDate(name))
+                .shoeCost(this.getShoeCost(name))
+                .shoeSize(this.getShoeSize(name))
                 .build();
         return resultShoe;
     }
 
     private WebElement getShoeName(String value) {
         return this.getAllShoeNames().stream().filter(opt -> opt.getText().equals(value)).findFirst().orElse(null);
+    }
+
+    private String getShoeDate(String name) {
+        return driver.findElement(By.xpath(String.format(createdShoePurchased, name))).getText().substring(11);
+    }
+
+    private String getShoeCost(String name) {
+        return driver.findElement(By.xpath(String.format(createdShoeCost, name))).getText().substring(7);
+    }
+
+    private String getShoeSize(String name) {
+        return driver.findElement(By.xpath(String.format(createdShoeSize, name))).getText().substring(6);
     }
 
     private List<WebElement> getAllShoeNames() {

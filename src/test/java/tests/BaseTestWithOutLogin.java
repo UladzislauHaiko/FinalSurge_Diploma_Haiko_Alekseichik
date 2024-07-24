@@ -7,12 +7,10 @@ import pages.DashboardPage;
 import pages.LoginPage;
 import utils.DriverFactory;
 import utils.InvokedListener;
-import utils.PropertyReader;
-import utils.TestListener;
 
 
-@Listeners({TestListener.class, InvokedListener.class})
-public abstract class BaseTestWithLogin {
+@Listeners({InvokedListener.class})
+public abstract class BaseTestWithOutLogin {
     protected WebDriver driver;
     protected LoginPage loginPage;
     protected DashboardPage dashboardPage;

@@ -9,10 +9,9 @@ import pages.*;
 import utils.DriverFactory;
 import utils.InvokedListener;
 import utils.PropertyReader;
-import utils.TestListener;
 
 
-@Listeners({TestListener.class, InvokedListener.class})
+@Listeners({InvokedListener.class})
 public abstract class BaseTest {
     protected WebDriver driver;
     protected LoginPage loginPage;

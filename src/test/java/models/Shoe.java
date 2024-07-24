@@ -13,8 +13,10 @@ public class Shoe {
     private String shoeName;
     private ShoeBrand shoeBrand;
     private String shoeModel;
+    @EqualsAndHashCode.Include
     private String shoeCost;
     private String datePurchased;
+    @EqualsAndHashCode.Include
     private String shoeSize;
     private String startingDistance;
     private String alertDistance;

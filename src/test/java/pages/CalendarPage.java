@@ -40,10 +40,15 @@ public class CalendarPage extends BasePage {
         driver.switchTo().frame(driver.findElement(iframe));
     }
 
+    private void switchToDefaultContent() {
+        driver.switchTo().defaultContent();
+    }
+
     public void uploadFile(String fileName) {
         switchToFrame();
         selectFile(fileName);
         clickToUploadFile();
+        switchToDefaultContent();
     }
 
     public boolean workoutDetailsSectionIsDisplayed() {
