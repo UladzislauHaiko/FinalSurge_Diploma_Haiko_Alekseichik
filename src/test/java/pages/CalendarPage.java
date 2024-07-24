@@ -36,16 +36,11 @@ public class CalendarPage extends BasePage {
         driver.findElement(By.xpath(String.format(uploadData, day))).click();
     }
 
-    private void switchToFrame() {
-        driver.switchTo().frame(driver.findElement(iframe));
-    }
 
-    private void switchToDefaultContent() {
-        driver.switchTo().defaultContent();
-    }
+
 
     public void uploadFile(String fileName) {
-        switchToFrame();
+        switchToFrame(iframe);
         selectFile(fileName);
         clickToUploadFile();
         switchToDefaultContent();

@@ -2,6 +2,7 @@ package pages;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -19,6 +20,17 @@ public abstract class BasePage {
     public BasePage(WebDriver driver) {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+    }
+
+    public void moveToElement(By locator) {
+        Actions action = new Actions(driver);
+        action.moveToElement(driver.findElement(locator)).build().perform();
+    }
+    public void switchToFrame(By locator) {
+        driver.switchTo().frame(driver.findElement(locator));
+    }
+    public void switchToDefaultContent() {
+        driver.switchTo().defaultContent();
     }
 
     public void clearInput(WebElement element) {

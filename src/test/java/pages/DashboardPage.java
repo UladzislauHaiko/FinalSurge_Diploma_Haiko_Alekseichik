@@ -36,11 +36,6 @@ public class DashboardPage extends BasePage {
         super(driver);
     }
 
-    public void moveToElement(By locator) {
-        Actions action = new Actions(driver);
-        action.moveToElement(driver.findElement(locator)).build().perform();
-    }
-
     @Step
     public void navigateToShoesPage() {
         moveToElement(gearRoutesHeader);

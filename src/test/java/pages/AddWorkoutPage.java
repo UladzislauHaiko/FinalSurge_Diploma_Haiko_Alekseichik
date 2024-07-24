@@ -144,9 +144,7 @@ public class AddWorkoutPage extends BasePage {
         String description = driver.findElement(createdDescription).getText();
         Pattern pattern = Pattern.compile("Workout Description:\\s*(.*?)\\s*Planned:");
         Matcher matcher = pattern.matcher(description);
-        if (matcher.find()) {
-            String desc = matcher.group(1);
-        }
+        matcher.find();
         return matcher.group(1);
     }
 
@@ -158,9 +156,7 @@ public class AddWorkoutPage extends BasePage {
         String perceivedEffort = driver.findElement(createdPerceivedEffort).getText();
         Pattern pattern = Pattern.compile("Perceived Effort (\\d+ \\(.*?\\))");
         Matcher matcher = pattern.matcher(perceivedEffort);
-        if (matcher.find()) {
-            String effort = matcher.group(1);
-        }
+        matcher.find();
         return matcher.group(1);
     }
 
@@ -168,9 +164,7 @@ public class AddWorkoutPage extends BasePage {
         String resultBPM = driver.findElement(createdHR).getText();
         Pattern pattern = Pattern.compile("Min HR: (\\d+) bpm");
         Matcher matcher = pattern.matcher(resultBPM);
-        if (matcher.find()) {
-            String minHR = matcher.group(1);
-        }
+        matcher.find();
         return matcher.group(1);
     }
 
@@ -178,9 +172,7 @@ public class AddWorkoutPage extends BasePage {
         String resultBPM = driver.findElement(createdHR).getText();
         Pattern pattern = Pattern.compile("Avg HR: (\\d+) bpm");
         Matcher matcher = pattern.matcher(resultBPM);
-        if (matcher.find()) {
-            String avgHR = matcher.group(1);
-        }
+        matcher.find();
         return matcher.group(1);
     }
 
@@ -188,9 +180,7 @@ public class AddWorkoutPage extends BasePage {
         String resultBPM = driver.findElement(createdHR).getText();
         Pattern pattern = Pattern.compile("Max HR: (\\d+) bpm");
         Matcher matcher = pattern.matcher(resultBPM);
-        if (matcher.find()) {
-            String maxHR = matcher.group(1);
-        }
+        matcher.find();
         return matcher.group(1);
     }
 

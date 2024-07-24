@@ -19,7 +19,7 @@ public class PrintWorkoutsPage extends BasePage {
     }
 
     public void print(String startDate, String endDate) {
-        switchToFrame();
+        switchToFrame(iframe);
         enterStartDate(startDate);
         enterEndDate(endDate);
         clickPrintWorkouts();
@@ -39,10 +39,6 @@ public class PrintWorkoutsPage extends BasePage {
         Object[] windowHandles = driver.getWindowHandles().toArray();
         driver.close();
         driver.switchTo().window((String) windowHandles[0]);
-    }
-
-    private void switchToFrame() {
-        driver.switchTo().frame(driver.findElement(iframe));
     }
 
     private void enterStartDate(String startDate) {

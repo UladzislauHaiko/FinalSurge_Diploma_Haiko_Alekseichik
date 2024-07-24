@@ -22,7 +22,7 @@ public class WorkoutTests extends BaseTest {
             .minimumHeartRate("80")
             .averageHeartRate("135")
             .maximumHeartRate("190")
-            .shoe("Dean Thomas (15.0 mi)")
+            .shoe("Dean Thomas (29.0 mi)")
             .build();
 
     @Test
