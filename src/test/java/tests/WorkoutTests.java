@@ -22,16 +22,31 @@ public class WorkoutTests extends BaseTest {
             .minimumHeartRate("80")
             .averageHeartRate("135")
             .maximumHeartRate("190")
-            .shoe("Dean Thomas (29.0 mi)")
+//            .shoe("Dean Thomas (15.0 mi)")
             .build();
 
-    @Test
+    @Test(groups = "positive")
     public void addNewRun() {
         dashboardPage.isPageOpened();
         dashboardPage.navigateToAddWorkout();
         addWorkoutPage.isPageOpened();
         addWorkoutPage.openActivityTypeByName("Run");
         addWorkoutPage.createNewRun(run);
+        addWorkoutPage.clickAddWorkoutButton();
+        Runs actualRun = addWorkoutPage.getRunInfo();
+        Assert.assertEquals(actualRun, run);
+    }
+
+    @Test(groups = "negative")
+    public void addRunToFail() {
+        Runs runFailed = Runs.builder()
+                .time("asds")
+                .build();
+        dashboardPage.isPageOpened();
+        dashboardPage.navigateToAddWorkout();
+        addWorkoutPage.isPageOpened();
+        addWorkoutPage.openActivityTypeByName("Run");
+        addWorkoutPage.createNewRun(runFailed);
         addWorkoutPage.clickAddWorkoutButton();
         Runs actualRun = addWorkoutPage.getRunInfo();
         Assert.assertEquals(actualRun, run);

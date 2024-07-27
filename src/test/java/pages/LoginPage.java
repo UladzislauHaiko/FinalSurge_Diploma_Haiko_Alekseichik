@@ -7,11 +7,11 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import utils.PropertyReader;
 
 public class LoginPage extends BasePage {
-    protected final By logInLink = By.xpath("//span[contains(text(), 'Log In')]");
-    protected final By loginEmail = By.cssSelector("input[name=email]");
-    protected final By loginPassword = By.cssSelector("input[name=password]");
-    protected final By signInButton = By.xpath("//span[contains(text(), 'Sign In')]");
+    protected final By loginEmail = By.id("login_name");
+    protected final By loginPassword = By.id("login_password");
+    protected final By loginButton = By.xpath("//button[text()='Login']");
     protected final By classicOption = By.xpath("//span[contains(text(), 'Continue with Classic')]");
+    protected final By errorMessage = By.cssSelector("label[class=error]");
 
     public LoginPage(WebDriver driver) {
         super(driver);
@@ -19,16 +19,13 @@ public class LoginPage extends BasePage {
 
     @Step
     public void openMainURL() {
+        logger.debug("Opening Main URL");
         driver.get(PropertyReader.getProperty("base_url"));
     }
+
     @Override
     public void isPageOpened() {
-        wait.until(ExpectedConditions.elementToBeClickable(logInLink));
-    }
-
-    @Step
-    public void clickLogInLink() {
-        driver.findElement(logInLink).click();
+        wait.until(ExpectedConditions.elementToBeClickable(loginButton));
     }
 
     @Step
@@ -43,16 +40,24 @@ public class LoginPage extends BasePage {
 
     @Step
     public void clickSignInButton() {
-        driver.findElement(signInButton).click();
+        driver.findElement(loginButton).click();
+    }
+
+    @Step
+    public void selectClassicOption() {
+        logger.debug("Selecting Classic option");
+        driver.findElement(classicOption).click();
+    }
+
+    public String getErrorMessageText() {
+        return driver.findElement(errorMessage).getText();
     }
 
     @Step
     public void login(String email, String password) {
         logger.info("Log in with email = {}, password = {}", email, password);
-        clickLogInLink();
         setEmailValue(email);
         setPasswordValue(password);
         clickSignInButton();
-        driver.findElement(classicOption).click();
     }
 }

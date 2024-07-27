@@ -23,17 +23,21 @@ public abstract class BasePage {
     }
 
     public void moveToElement(By locator) {
+        logger.debug("moving to element");
         Actions action = new Actions(driver);
         action.moveToElement(driver.findElement(locator)).build().perform();
     }
     public void switchToFrame(By locator) {
+        logger.debug("switching to iframe");
         driver.switchTo().frame(driver.findElement(locator));
     }
     public void switchToDefaultContent() {
+        logger.debug("switching from iframe to default content");
         driver.switchTo().defaultContent();
     }
 
     public void clearInput(WebElement element) {
+        logger.debug("Clearing input");
         Actions action = new Actions(driver);
         action.click(element)
                 .keyDown(Keys.CONTROL)

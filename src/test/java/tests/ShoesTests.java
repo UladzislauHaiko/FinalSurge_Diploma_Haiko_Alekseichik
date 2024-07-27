@@ -3,14 +3,13 @@ package tests;
 import com.github.javafaker.Faker;
 import enums.ShoeBrand;
 import models.Shoe;
-import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class ShoesTests extends BaseTest {
     Faker faker = new Faker();
     Shoe shoe = Shoe.builder()
-            .shoeName(faker.harryPotter().character())
+            .shoeName(faker.number().randomDigit() + faker.app().name() + faker.number().randomDigit())
             .shoeBrand(ShoeBrand.NIKE)
             .shoeModel("Yeezy 350")
             .shoeCost("115.00")
@@ -21,7 +20,7 @@ public class ShoesTests extends BaseTest {
             .notes("My notes")
             .build();
 
-    @Test
+    @Test(groups = "positive")
     public void addNewShoe() {
         dashboardPage.isPageOpened();
         dashboardPage.navigateToShoesPage();
@@ -31,7 +30,7 @@ public class ShoesTests extends BaseTest {
         Assert.assertEquals(actualShoe, shoe);
     }
 
-    @Test
+    @Test(groups = "positive")
     public void deleteShoe() {
         dashboardPage.isPageOpened();
         dashboardPage.navigateToShoesPage();

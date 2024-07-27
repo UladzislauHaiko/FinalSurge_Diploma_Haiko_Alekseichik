@@ -22,12 +22,12 @@ public class CalendarPage extends BasePage {
         super(driver);
     }
 
-    @Step
+    @Step("Opening dropdown with different options for a given day")
     public void clickPlusIconForDay(String day) {
         driver.findElement(By.xpath(String.format(plusIcon, day))).click();
     }
 
-    @Step
+    @Step("Clicking Upload Data")
     public void selectUploadDataOptionForDay(String day) {
         Actions action = new Actions(driver);
         WebElement box = driver.findElement(By.xpath(String.format(dayBox, day)));

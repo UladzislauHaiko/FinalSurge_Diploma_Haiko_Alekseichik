@@ -36,6 +36,7 @@ public class PrintWorkoutsPage extends BasePage {
     }
 
     public void closeTab() {
+        logger.debug("Closing tab");
         Object[] windowHandles = driver.getWindowHandles().toArray();
         driver.close();
         driver.switchTo().window((String) windowHandles[0]);

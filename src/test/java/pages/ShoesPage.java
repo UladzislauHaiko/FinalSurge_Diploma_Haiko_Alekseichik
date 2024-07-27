@@ -3,11 +3,7 @@ package pages;
 import decorators.TypeAheadDropdown;
 import io.qameta.allure.Step;
 import models.Shoe;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
@@ -51,7 +47,7 @@ public class ShoesPage extends BasePage {
         driver.findElement(addShoeButton).click();
     }
 
-    @Step
+    @Step("Creating new Shoe '{shoe.shoeName}' full scenario")
     public void createNewShoe(Shoe shoe) {
         logger.info("Creating new shoe of brand {}", shoe.getShoeBrand());
         if (shoe.getShoeName() != null) {
@@ -88,13 +84,21 @@ public class ShoesPage extends BasePage {
     }
 
     public Shoe getShoeInfo(String name) {
-        Shoe resultShoe = Shoe.builder()
-                .shoeName(this.getShoeName(name).getText())
-                .datePurchased(this.getShoeDate(name))
-                .shoeCost(this.getShoeCost(name))
-                .shoeSize(this.getShoeSize(name))
-                .build();
-        return resultShoe;
+        Shoe.ShoeBuilder result = Shoe.builder();
+        result.shoeName(this.getShoeName(name).getText());
+        try {
+            result.datePurchased(this.getShoeDate(name));
+        } catch (NoSuchElementException exception) {
+        }
+        try {
+            result.shoeCost(this.getShoeCost(name));
+        } catch (NoSuchElementException exception) {
+        }
+        try {
+            result.shoeSize(this.getShoeSize(name));
+        } catch (NoSuchElementException exception) {
+        }
+        return result.build();
     }
 
     private WebElement getShoeName(String value) {

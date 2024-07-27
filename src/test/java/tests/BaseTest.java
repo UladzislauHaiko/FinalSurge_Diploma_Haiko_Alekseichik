@@ -1,8 +1,6 @@
 package tests;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.ITestContext;
 import org.testng.annotations.*;
 import pages.*;
@@ -21,7 +19,6 @@ public abstract class BaseTest {
     protected ImportDataPage importDataPage;
     protected PrintWorkoutsPage printWorkoutsPage;
     protected CalendarPage calendarPage;
-
 
 
     @BeforeClass(alwaysRun = true)
