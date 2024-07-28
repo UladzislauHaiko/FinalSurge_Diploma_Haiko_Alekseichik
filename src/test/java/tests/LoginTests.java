@@ -11,10 +11,6 @@ public class LoginTests extends BaseTestWithOutLogin {
 
     @Test(groups = "positive")
     @Description("User can be logged in")
-    @Severity(SeverityLevel.BLOCKER)
-    @Issue("12345") //ссылка на баг в багтрекинг системе
-    @TmsLink("85125") //ссылка на тесткейс
-    @Link(url = "https://www.google.com/") //просто ссылка на какой-то нужный ресурс
     public void positiveLoginTest() {
         loginPage.openMainURL();
         loginPage.isPageOpened();
