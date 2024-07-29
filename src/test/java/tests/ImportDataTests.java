@@ -21,7 +21,7 @@ public class ImportDataTests extends BaseTestWithLogin {
         Assert.assertTrue(calendarPage.isActivityCardDisplayedForDay("20"));
     }
 
-    @Test(groups = "negative", enabled = false)
+    @Test(groups = "negative")
     public void verifyUploadWithoutFileOnImportData() {
         dashboardPage.isPageOpened();
         dashboardPage.navigateToImportData();
