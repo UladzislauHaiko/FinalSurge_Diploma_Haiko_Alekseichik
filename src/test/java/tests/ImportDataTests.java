@@ -18,7 +18,8 @@ public class ImportDataTests extends BaseTestWithLogin {
                 "Your data import is complete! Your imported workouts will now be displayed on your calendar.");
         dashboardPage.clickCalendar();
         calendarPage.isPageOpened();
-        Assert.assertTrue(calendarPage.isActivityCardDisplayedForDay("20"));
+        String dayOfActivityInsideUploadedFile = "20";
+        Assert.assertTrue(calendarPage.isActivityCardDisplayedForDay(dayOfActivityInsideUploadedFile));
     }
 
     @Test(groups = "negative")
