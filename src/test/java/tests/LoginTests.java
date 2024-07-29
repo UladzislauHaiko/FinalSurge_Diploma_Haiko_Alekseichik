@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 import utils.PropertyReader;
 
 
-public class LoginTests extends BaseTestWithOutLogin {
+public class LoginTests extends BaseTest {
 
     @Test(groups = "positive")
     @Description("User can be logged in")

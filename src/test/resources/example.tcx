@@ -5,8 +5,8 @@ abase/v2 http://www.garmin.com/xmlschemas/TrainingCenterDatabasev2.xsd">
 
   <Activities>
     <Activity Sport="Biking">
-      <Id>2010-06-26T10:06:11Z</Id>
-      <Lap StartTime="2010-06-26T10:06:11Z">
+      <Id>2024-07-20T10:06:11Z</Id>
+      <Lap StartTime="2024-07-20T10:06:11Z">
         <TotalTimeSeconds>906.1800000</TotalTimeSeconds>
         <DistanceMeters>9762.4433594</DistanceMeters>
         <MaximumSpeed>15.2404995</MaximumSpeed>
@@ -22,7 +22,7 @@ abase/v2 http://www.garmin.com/xmlschemas/TrainingCenterDatabasev2.xsd">
         <TriggerMethod>Location</TriggerMethod>
         <Track>
           <Trackpoint>
-            <Time>2010-06-26T10:06:11Z</Time>
+            <Time>2024-07-20T10:06:11Z</Time>
             <Position>
               <LatitudeDegrees>40.7780135</LatitudeDegrees>
               <LongitudeDegrees>-73.9665795</LongitudeDegrees>
@@ -35,7 +35,7 @@ abase/v2 http://www.garmin.com/xmlschemas/TrainingCenterDatabasev2.xsd">
             <SensorState>Absent</SensorState>
           </Trackpoint>
           <Trackpoint>
-            <Time>2010-06-26T10:06:12Z</Time>
+            <Time>2024-07-20T10:06:11Z</Time>
             <Position>
               <LatitudeDegrees>40.7780136</LatitudeDegrees>
               <LongitudeDegrees>-73.9665778</LongitudeDegrees>
@@ -48,7 +48,7 @@ abase/v2 http://www.garmin.com/xmlschemas/TrainingCenterDatabasev2.xsd">
             <SensorState>Absent</SensorState>
           </Trackpoint>
           <Trackpoint>
-            <Time>2010-06-26T10:06:17Z</Time>
+            <Time>2024-07-20T10:06:11Z</Time>
             <Position>
               <LatitudeDegrees>40.7780147</LatitudeDegrees>
               <LongitudeDegrees>-73.9665789</LongitudeDegrees>
@@ -61,7 +61,7 @@ abase/v2 http://www.garmin.com/xmlschemas/TrainingCenterDatabasev2.xsd">
             <SensorState>Absent</SensorState>
           </Trackpoint>
           <Trackpoint>
-            <Time>2010-06-26T10:06:24Z</Time>
+            <Time>2024-07-20T10:06:11Z</Time>
             <Position>
               <LatitudeDegrees>40.7780246</LatitudeDegrees>
               <LongitudeDegrees>-73.9665919</LongitudeDegrees>
@@ -74,7 +74,7 @@ abase/v2 http://www.garmin.com/xmlschemas/TrainingCenterDatabasev2.xsd">
             <SensorState>Absent</SensorState>
           </Trackpoint>
           <Trackpoint>
-            <Time>2010-06-26T10:06:25Z</Time>
+            <Time>2024-07-20T10:06:11Z</Time>
             <Position>
               <LatitudeDegrees>40.7780338</LatitudeDegrees>
               <LongitudeDegrees>-73.9665851</LongitudeDegrees>
@@ -87,7 +87,7 @@ abase/v2 http://www.garmin.com/xmlschemas/TrainingCenterDatabasev2.xsd">
             <SensorState>Present</SensorState>
           </Trackpoint>
           <Trackpoint>
-            <Time>2010-06-26T10:06:28Z</Time>
+            <Time>2024-07-20T10:06:11Z</Time>
             <Position>
               <LatitudeDegrees>40.7780800</LatitudeDegrees>
               <LongitudeDegrees>-73.9665492</LongitudeDegrees>
@@ -104,7 +104,7 @@ abase/v2 http://www.garmin.com/xmlschemas/TrainingCenterDatabasev2.xsd">
             </Extensions>
           </Trackpoint>
           <Trackpoint>
-            <Time>2010-06-26T10:06:30Z</Time>
+            <Time>2024-07-20T10:06:11Z</Time>
             <Position>
               <LatitudeDegrees>40.7781448</LatitudeDegrees>
               <LongitudeDegrees>-73.9665005</LongitudeDegrees>

@@ -3,7 +3,7 @@ package tests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class PrintWorkoutsTest extends BaseTest {
+public class PrintWorkoutsTest extends BaseTestWithLogin {
 
     @Test(groups = "negative")
     public void verifyPrintWithoutData() {
@@ -14,7 +14,7 @@ public class PrintWorkoutsTest extends BaseTest {
                 ×
                 Please fix the following errors:
                 *The date range you have selected does not contain any workouts. Please close this browser window and adjust your date range.""";
-        printWorkoutsPage.print("07/07/2024", "07/09/2024");
+        printWorkoutsPage.print("06/07/2024", "06/09/2024");
         Assert.assertEquals(printWorkoutsPage.getErrorText(), expectedErrorMsg,
                 "Error message does appear");
     }

@@ -113,7 +113,7 @@ public class DashboardPage extends BasePage {
     }
 
     @Step("Getting message about successfully logged out of the system")
-    public static String getLogoutMessage() {
+    public String getLogoutMessage() {
         return driver.findElement(logoutMessage).getText();
     }
 

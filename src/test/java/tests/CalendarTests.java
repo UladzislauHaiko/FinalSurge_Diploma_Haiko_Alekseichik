@@ -3,7 +3,7 @@ package tests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class CalendarTests extends BaseTest {
+public class CalendarTests extends BaseTestWithLogin {
     @Test(groups = "positive")
     public void verifyUploadFileOnCalendarPageTest() {
         dashboardPage.isPageOpened();
@@ -12,5 +12,8 @@ public class CalendarTests extends BaseTest {
         String fileName = System.getProperty("user.dir") + "/src/test/resources/example.tcx";
         calendarPage.uploadFile(fileName);
         Assert.assertTrue(calendarPage.workoutDetailsSectionIsDisplayed());
+        dashboardPage.clickCalendar();
+        calendarPage.isPageOpened();
+        calendarPage.isActivityCardDisplayedForDay("10");
     }
 }

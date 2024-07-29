@@ -12,7 +12,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public abstract class BasePage {
-    protected static WebDriver driver;
+    protected WebDriver driver;
     protected WebDriverWait wait;
     protected final Logger logger = LogManager.getLogger(this.getClass().getName());
 

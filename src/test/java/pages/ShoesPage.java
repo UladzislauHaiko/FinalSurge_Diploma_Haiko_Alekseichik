@@ -104,6 +104,9 @@ public class ShoesPage extends BasePage {
     private WebElement getShoeName(String value) {
         return this.getAllShoeNames().stream().filter(opt -> opt.getText().equals(value)).findFirst().orElse(null);
     }
+    public boolean shoeFound(String value) {
+        return this.getAllShoeNames().stream().anyMatch(opt -> opt.getText().equals(value));
+    }
 
     private String getShoeDate(String name) {
         return driver.findElement(By.xpath(String.format(createdShoePurchased, name))).getText().substring(11);

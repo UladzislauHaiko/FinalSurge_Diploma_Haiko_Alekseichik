@@ -3,10 +3,11 @@ package tests;
 import com.github.javafaker.Faker;
 import enums.ShoeBrand;
 import models.Shoe;
+import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class ShoesTests extends BaseTest {
+public class ShoesTests extends BaseTestWithLogin {
     Faker faker = new Faker();
     Shoe shoe = Shoe.builder()
             .shoeName(faker.number().randomDigit() + faker.app().name() + faker.number().randomDigit())
@@ -36,5 +37,6 @@ public class ShoesTests extends BaseTest {
         dashboardPage.navigateToShoesPage();
         shoesPage.isPageOpened();
         shoesPage.deleteShoeByName(shoe.getShoeName());
+        Assert.assertFalse(shoesPage.shoeFound(shoe.getShoeName()));
     }
 }

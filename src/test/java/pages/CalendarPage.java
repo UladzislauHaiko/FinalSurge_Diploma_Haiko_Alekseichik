@@ -11,6 +11,7 @@ public class CalendarPage extends BasePage {
 
     protected final By calendarMonth = By.id("dpMonth");
     protected final String plusIcon = "//div[text()='%s']/../following-sibling::td//i";
+    protected final String activityCard = "//td[@data-day='%s']//a[@class='dropdown-toggle detailslink']";
     protected final String dayBox = "//div[text()='%s']";
     protected final String uploadData = "//a[@data-day='%s'][@data-reveal-id='WorkoutUpload']";
     protected final By iframe = By.cssSelector("iframe[id='WorkoutUploadiFrame']");
@@ -36,9 +37,11 @@ public class CalendarPage extends BasePage {
         driver.findElement(By.xpath(String.format(uploadData, day))).click();
     }
 
+    public boolean isActivityCardDisplayedForDay(String day) {
+        return driver.findElement(By.xpath(String.format(activityCard, day))).isDisplayed();
+    }
 
-
-
+    @Step
     public void uploadFile(String fileName) {
         switchToFrame(iframe);
         selectFile(fileName);

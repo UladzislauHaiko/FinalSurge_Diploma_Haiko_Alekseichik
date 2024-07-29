@@ -28,6 +28,7 @@ public class AddWorkoutPage extends BasePage {
     public final By maximumHeartRate = By.id("MaxHR");
     public final By equipmentOption = By.id("EquipmentListBox");
     public final By selectShoeDropdown = By.id("EquipmentList");
+    public final String selectShoeOption = "//select[@id='EquipmentList']/option[contains(text(), '%s')]";
     public final By addWorkoutButton = By.id("saveButton");
     public final By createdWorkoutName = By.xpath("//span[@class='activityTypeName']/../following-sibling::div");
     public final By createdDescription = By.xpath("//p[@class=' testme dont-break-out']");
@@ -160,7 +161,7 @@ public class AddWorkoutPage extends BasePage {
         if (run.getShoe() != null) {
             expandEquipmentOption();
             Select shoeDropdown = new Select(driver.findElement(selectShoeDropdown));
-            shoeDropdown.selectByVisibleText(run.getShoe());
+            shoeDropdown.selectByVisibleText(driver.findElement(By.xpath(String.format(selectShoeOption, run.getShoe()))).getText());
         }
     }
 
