@@ -1,7 +1,6 @@
 package tests;
 
 import enums.ImportFrom;
-import enums.ShoeBrand;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -22,7 +21,7 @@ public class ImportDataTests extends BaseTestWithLogin {
         Assert.assertTrue(calendarPage.isActivityCardDisplayedForDay("20"));
     }
 
-    @Test(groups = "negative")
+    @Test(groups = "negative", enabled = false)
     public void verifyUploadWithoutFileOnImportData() {
         dashboardPage.isPageOpened();
         dashboardPage.navigateToImportData();

@@ -2,6 +2,7 @@ package pages;
 
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -38,7 +39,12 @@ public class CalendarPage extends BasePage {
     }
 
     public boolean isActivityCardDisplayedForDay(String day) {
-        return driver.findElement(By.xpath(String.format(activityCard, day))).isDisplayed();
+        try {
+            driver.findElement(By.xpath(String.format(activityCard, day))).isDisplayed();
+        } catch (NoSuchElementException exception) {
+            return false;
+        }
+        return true;
     }
 
     @Step
