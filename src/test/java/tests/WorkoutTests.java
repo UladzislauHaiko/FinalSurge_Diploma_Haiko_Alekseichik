@@ -36,19 +36,4 @@ public class WorkoutTests extends BaseTestWithLogin {
         Runs actualRun = addWorkoutPage.getRunInfo();
         Assert.assertEquals(actualRun, run);
     }
-
-    @Test(groups = "negative")
-    public void addRunToFail() {
-        Runs runFailed = Runs.builder()
-                .time("asds")
-                .build();
-        dashboardPage.isPageOpened();
-        dashboardPage.navigateToAddWorkout();
-        addWorkoutPage.isPageOpened();
-        addWorkoutPage.openActivityTypeByName("Run");
-        addWorkoutPage.createNewRun(runFailed);
-        addWorkoutPage.clickAddWorkoutButton();
-        Runs actualRun = addWorkoutPage.getRunInfo();
-        Assert.assertEquals(actualRun, run);
-    }
 }

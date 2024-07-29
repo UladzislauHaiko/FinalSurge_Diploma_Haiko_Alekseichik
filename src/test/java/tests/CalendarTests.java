@@ -8,12 +8,13 @@ public class CalendarTests extends BaseTestWithLogin {
     public void verifyUploadFileOnCalendarPageTest() {
         dashboardPage.isPageOpened();
         dashboardPage.clickCalendar();
-        calendarPage.selectUploadDataOptionForDay("10");
+        String day = "10";
+        calendarPage.selectUploadDataOptionForDay(day);
         String fileName = System.getProperty("user.dir") + "/src/test/resources/example.tcx";
         calendarPage.uploadFile(fileName);
         Assert.assertTrue(calendarPage.workoutDetailsSectionIsDisplayed());
         dashboardPage.clickCalendar();
         calendarPage.isPageOpened();
-        calendarPage.isActivityCardDisplayedForDay("10");
+        Assert.assertTrue(calendarPage.isActivityCardDisplayedForDay(day));
     }
 }
