@@ -15,6 +15,10 @@ public class DriverFactory {
             case "chrome" -> {
                 ChromeOptions options = new ChromeOptions();
 //                options.addArguments("--headless");
+                options.addArguments("--disable-extensions");
+                options.addArguments("--disable-infobars");
+                options.addArguments("--disable-popup-blocking");
+                options.addArguments("--disable-notifications");
                 driver = new ChromeDriver(options);
             }
             case "edge" -> driver = new EdgeDriver();

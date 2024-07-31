@@ -5,7 +5,7 @@ import models.Runs;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class WorkoutTests extends BaseTest {
+public class WorkoutTests extends BaseTestWithLogin {
     Faker faker = new Faker();
     Runs run = Runs.builder()
             .date("07/23/2024")
@@ -22,10 +22,10 @@ public class WorkoutTests extends BaseTest {
             .minimumHeartRate("80")
             .averageHeartRate("135")
             .maximumHeartRate("190")
-            .shoe("Dean Thomas (29.0 mi)")
+            .shoe("Dean Thomas")
             .build();
 
-    @Test
+    @Test(groups = "positive")
     public void addNewRun() {
         dashboardPage.isPageOpened();
         dashboardPage.navigateToAddWorkout();
